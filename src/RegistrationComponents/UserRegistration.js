@@ -8,14 +8,15 @@ import  sendRequest  from "../AxiosMethods/SendRequest";
 
 export default function UserRegistration() {
 
-    const userRegistrationURL = "http://localhost:8080/userRegistration"
+    const userRegistrationURL = "http://192.168.0.102:8080/consumer/register"
     const [userName, setUserName] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
     const [address, setAddress] = useState("")
     const [geoLocation, setGeoLocation] = useState("DummyLocation")
 
     const registerUser = ()=>{
-        console.log(userName)
+        
+        console.log("sending request to user registration")
             const registrationDetails = {   userName: userName,
                                             phoneNumber: phoneNumber,
                                             address: address,
