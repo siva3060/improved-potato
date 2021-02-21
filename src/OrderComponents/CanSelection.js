@@ -5,9 +5,24 @@ import Button from '@material-ui/core/Button'
 
 export default function CanSelection() {
 
-    const canTypes = ["KINLEY","BISLERI","GENERIC"]
+    const initialData = [{
+        canName: "KINLEY",
+        canPrice: 85,
+        canSubTotal:0
+    },
+    {
+        canName: "BISLERI",
+        canPrice: 70,
+        canSubTotal:0
+    },
+    {
+        canName: "GENERIC",
+        canPrice: 40,
+        canSubTotal:0
+    }]
 
     const [order, setOrder] = useState({})
+    const [canTypes,setCanTypes] = useState(initialData)
 
    const updateOrder = (canName, canCount)=> {
       (!canName in order) ?
@@ -24,7 +39,7 @@ export default function CanSelection() {
         <Grid container direction="column" spacing={2}>
             {canTypes.map(can=>(
                 <Grid item xs={12} key={can}>
-                    <CanDisplay  {... {canName:can, updateOrder}}/>
+                    <CanDisplay  {... {can:can, updateOrder}}/>
                 </Grid>
             ))}
             <Grid item >
